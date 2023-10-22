@@ -20,6 +20,5 @@ export const ContactList = ({ contacts, onRemoveContact }) => (
     ))}
   </ul>
 );
-// console.log('contacts :>> ', contacts);
 
 export default ContactList;
