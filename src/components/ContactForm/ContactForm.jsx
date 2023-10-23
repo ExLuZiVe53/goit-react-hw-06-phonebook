@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contactsSlise';
 
+import css from './ContactForm.module.css';
+
 // import { nanoid } from 'nanoid';
 
 export const ContactForm = () => {
@@ -27,7 +29,7 @@ export const ContactForm = () => {
     // Cкидую налаштування
     e.preventDefault();
     // Записую значення з імпуту до об"єкту
-    console.log('e.currentTarget', e.currentTarget.name.value);
+
     const haveNameInPhonebook = JSON.parse(
       localStorage.getItem('user-contact')
     ).some(
@@ -44,9 +46,11 @@ export const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSabmit}>
+    <form className={css.FormWrapper} onSubmit={handleSabmit}>
       <div>
-        <label htmlFor="name">Name</label>
+        <label className={css.FormLabel} htmlFor="name">
+          Name
+        </label>
         <input
           type="text"
           name="name"
@@ -55,11 +59,14 @@ export const ContactForm = () => {
           required
           onChange={handleChange}
           value={name}
+          className={css.FormInput}
         />
       </div>
 
       <div>
-        <label htmlFor="number">Number</label>
+        <label className={css.FormLabel} htmlFor="number">
+          Number
+        </label>
         <input
           type="tel"
           name="number"
@@ -68,9 +75,12 @@ export const ContactForm = () => {
           required
           onChange={handleChange}
           value={number}
+          className={css.FormInput}
         />
       </div>
-      <button type="submit">add contacts</button>
+      <button className={css.ButtonForm} type="submit">
+        add contacts
+      </button>
     </form>
   );
 };
