@@ -1,17 +1,27 @@
-import React from 'react';
-import styles from './Filter.module.css';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { filter } from 'redux/filtersSlice';
 
-export function Filter({ value, onChangeFilter }) {
+export const Filter = () => {
+  const dispatch = useDispatch();
+
+  const [filterok, setFilter] = useState('');
+
+  const handleFind = e => {
+    setFilter(e.target.value);
+  };
+  dispatch(filter(filterok));
   return (
-    <div className={styles.FilterWrap}>
-      Find contacts by name
-      <input
-        type="text"
-        value={value}
-        onChange={event => onChangeFilter(event.target.value)}
-        className={styles.FilterInput}
-        placeholder="Search"
-      />
+    <div>
+      <label htmlFor="">
+        Find contacts by name
+        <input
+          name="filter"
+          type="text"
+          value={filterok}
+          onChange={handleFind}
+        />
+      </label>
     </div>
   );
-}
+};
