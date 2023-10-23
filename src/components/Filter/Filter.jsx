@@ -14,16 +14,14 @@ export const Filter = () => {
   dispatch(filter(filterok));
   return (
     <div className={css.FilterWrap}>
-      <label htmlFor="">
-        Find contacts by name
-        <input
-          name="filter"
-          type="text"
-          value={filterok}
-          onChange={handleFind}
-          className={css.FilterInput}
-        />
-      </label>
+      <label htmlFor="">Find contacts by name</label>
+      <input
+        name="filter"
+        type="text"
+        value={filterok}
+        onChange={handleFind}
+        className={css.FilterInput}
+      />
     </div>
   );
 };

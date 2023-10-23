@@ -28,3 +28,7 @@
   font-weight: 700;
   margin-right: 20px;
 }
+
+.ContactUl {
+  list-style: none;
+}

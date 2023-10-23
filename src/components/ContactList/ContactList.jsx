@@ -24,10 +24,10 @@ const ContactList = () => {
     dispatch(deleteContact(id));
   };
   return (
-    <ul>
+    <ul className={css.ContactUl}>
       {visibleFilter.map(contact => (
         <li key={contact.id}>
-          {contact.name}: {contact.number}{' '}
+          {contact.name} - {contact.number}{' '}
           <button
             className={css.delete}
             onClick={() => handleDelete(contact.id)}
