@@ -21,14 +21,30 @@
 }
 
 .TelSpan {
-  margin-right: 20px;
 }
 
 .NameSpan {
   font-weight: 700;
-  margin-right: 20px;
 }
 
 .ContactUl {
   list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ContactItem {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+}
+
+.ContactName {
+  color: violet;
+}
+
+.ContactNumber {
+  color: green;
 }

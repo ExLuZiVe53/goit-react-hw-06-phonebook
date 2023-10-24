@@ -26,8 +26,9 @@ const ContactList = () => {
   return (
     <ul className={css.ContactUl}>
       {visibleFilter.map(contact => (
-        <li key={contact.id}>
-          {contact.name} - {contact.number}{' '}
+        <li className={css.ContactItem} key={contact.id}>
+          <span className={css.ContactName}>{contact.name}</span>-
+          <span className={css.ContactNumber}>{contact.number}</span>
           <button
             className={css.delete}
             onClick={() => handleDelete(contact.id)}

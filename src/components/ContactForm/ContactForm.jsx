@@ -60,6 +60,7 @@ export const ContactForm = () => {
           onChange={handleChange}
           value={name}
           className={css.FormInput}
+          placeholder="Enter your name"
         />
       </div>
 
@@ -76,6 +77,7 @@ export const ContactForm = () => {
           onChange={handleChange}
           value={number}
           className={css.FormInput}
+          placeholder="Enter your number"
         />
       </div>
       <button className={css.ButtonForm} type="submit">

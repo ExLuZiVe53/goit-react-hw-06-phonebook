@@ -40,7 +40,7 @@ export const filterReducer = (state = filtersInitialState, action) => {
   }
 };
 
-// Код редюсерів tasksReducer та filtersReducer
+// Код редюсерів contactReducer та filtersReducer
 export const rootReducer = combineReducers({
   contacts: contactsReducer,
   filters: filterReducer,
