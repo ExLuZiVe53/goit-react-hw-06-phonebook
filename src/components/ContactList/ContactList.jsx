@@ -5,7 +5,10 @@ import { deleteContact } from 'redux/contactsSlise';
 import css from './ContactList.module.css';
 
 const ContactList = () => {
-  const filters = useSelector(state => state.contacts.filters);
+  const filters = useSelector(state => {
+    console.log(state.filters);
+    return state.filters;
+  });
   const contacts = useSelector(state => {
     console.log(state.contacts.contacts);
     return state.contacts.contacts;
