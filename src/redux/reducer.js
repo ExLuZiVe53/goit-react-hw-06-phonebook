@@ -1,5 +1,5 @@
-import { combineReducers } from 'redux';
-const initialState = JSON.parse(localStorage.getItem('user-contact')) || [
+// import { combineReducers } from 'redux';
+const initialState = [
   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
   { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
   { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
@@ -9,7 +9,7 @@ export const contactsReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'contacts/addContact':
       const updatePhonebook = [...state, action.payload];
-      localStorage.setItem('user-contact', JSON.stringify(updatePhonebook));
+      // localStorage.setItem('user-contact', JSON.stringify(updatePhonebook));
       return updatePhonebook;
 
     case 'contacts/deleteContact':
@@ -17,10 +17,10 @@ export const contactsReducer = (state = initialState, action) => {
         contact => contact.id !== action.payload
       );
 
-      localStorage.setItem(
-        'user-contact',
-        JSON.stringify(withoutRemovedContact)
-      );
+      // localStorage.setItem(
+      //   'user-contact',
+      //   JSON.stringify(withoutRemovedContact)
+      // );
       return withoutRemovedContact;
     default:
       return state;
@@ -41,7 +41,8 @@ export const filterReducer = (state = filtersInitialState, action) => {
 };
 
 // Код редюсерів contactReducer та filtersReducer
-export const rootReducer = combineReducers({
-  contacts: contactsReducer,
-  filters: filterReducer,
-});
+
+// export const rootReducer = combineReducers(
+//   contacts: contactsReducer,
+//   filters: filterReducer,
+// );

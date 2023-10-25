@@ -5,17 +5,21 @@ import { deleteContact } from 'redux/contactsSlise';
 import css from './ContactList.module.css';
 
 const ContactList = () => {
-  const filters = useSelector(state => state.filters);
-  const contacts = useSelector(state => state.contacts);
-  localStorage.setItem('user-contact', JSON.stringify(contacts));
+  const filters = useSelector(state => state.contacts.filters);
+  const contacts = useSelector(state => {
+    console.log(state.contacts.contacts);
+    return state.contacts.contacts;
+  });
+  // localStorage.setItem('user-contact', JSON.stringify(contacts));
 
-  const contactss = JSON.parse(localStorage.getItem('user-contact'));
+  // const contactss = JSON.parse(localStorage.getItem('user-contact'));
 
-  const visibleFilter = contactss.filter(contact =>
+  const visibleFilter = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filters)
   );
+
   useEffect(() => {
-    localStorage.setItem('user-contact', JSON.stringify(contacts));
+    // localStorage.setItem('user-contact', JSON.stringify(contacts));
   }, [contacts]);
 
   const dispatch = useDispatch();

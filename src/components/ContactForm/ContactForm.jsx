@@ -30,15 +30,15 @@ export const ContactForm = () => {
     e.preventDefault();
     // Записую значення з імпуту до об"єкту
 
-    const haveNameInPhonebook = JSON.parse(
-      localStorage.getItem('user-contact')
-    ).some(
-      ({ name }) =>
-        name.toLowerCase() === e.currentTarget.name.value.toLowerCase()
-    );
-    if (haveNameInPhonebook) {
-      return alert(`${e.currentTarget.name.value} is already in contacts`);
-    }
+    // const haveNameInPhonebook = JSON.parse(
+    //   localStorage.getItem('user-contact')
+    // ).some(
+    //   ({ name }) =>
+    //     name.toLowerCase() === e.currentTarget.name.value.toLowerCase()
+    // );
+    // if (haveNameInPhonebook) {
+    //   return alert(`${e.currentTarget.name.value} is already in contacts`);
+    // }
     dispatch(addContact(name, number));
     // Оновлюю інпут
     setName('');
