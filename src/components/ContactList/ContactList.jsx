@@ -6,7 +6,7 @@ const ContactList = () => {
   const dispatch = useDispatch();
 
   const filter = useSelector(state => {
-    return state.filter;
+    return state.filters.filter;
   });
 
   const contacts = useSelector(state => {
