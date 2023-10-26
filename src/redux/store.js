@@ -13,7 +13,7 @@ import {
 } from 'redux-persist';
 
 export const store = configureStore({
-  reducer: { contacts: persistedContactsReducer, filter: filtersReducer },
+  reducer: { contacts: persistedContactsReducer, filters: filtersReducer },
 
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

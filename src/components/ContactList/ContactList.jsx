@@ -4,6 +4,7 @@ import css from './ContactList.module.css';
 
 const ContactList = () => {
   const dispatch = useDispatch();
+
   const filter = useSelector(state => {
     return state.filter;
   });
@@ -15,6 +16,10 @@ const ContactList = () => {
   const visibleFilter = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter)
   );
+
+  // const filtredContacts = contacts.filter(({ contact }) =>
+  //   contact.toLowerCase().includes(filter.toLowerCase())
+  // );
 
   const handleDelete = id => {
     dispatch(deleteContact(id));

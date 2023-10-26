@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
-import { setFilter } from 'redux/filtersSlice';
+
 import css from './Filter.module.css';
+import { setFilter } from 'redux/filtersSlice';
 
 export const Filter = () => {
   // створює функію вантажівку, яка донесе інструкрію за допомогою хуків
@@ -9,6 +10,8 @@ export const Filter = () => {
   const handleFind = event => {
     dispatch(setFilter(event.target.value));
   };
+
+  // const Myfilter = useSelector(setFilter);
   return (
     <div className={css.FilterWrap}>
       <label>Find contacts by name</label>
