@@ -17,24 +17,18 @@ const contactsSlise = createSlice({
   name: 'contacts',
   initialState: InitialState,
   reducers: {
-    addContact: (state, action) => {
-      const haveNameInPhonebook = state.contacts.find(
-        ({ name }) => name === action.payload.name
-      );
-      if (haveNameInPhonebook) {
-        return alert(`${action.payload.name} is already in contacts`);
-      }
-
-      state.contacts.push(action.payload);
-    },
-    prepare(name, number) {
-      return {
-        payload: {
-          id: nanoid(),
-          name,
-          number,
-        },
-      };
+    addContact: {
+      reducer: (state, action) => {
+        state.contacts.push(action.payload);
+      },
+      prepare(contact) {
+        return {
+          payload: {
+            id: nanoid(),
+            ...contact,
+          },
+        };
+      },
     },
 
     deleteContact: (state, action) => {
