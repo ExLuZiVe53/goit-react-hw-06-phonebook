@@ -1,17 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const filtersInitialState = { filters: '' };
-
 const filtersSlise = createSlice({
   name: 'filters',
-  initialState: filtersInitialState,
+  initialState: { filter: '' },
   reducers: {
-    filter(state, action) {
-      return (state.filters = action.payload);
+    setFilter(state, action) {
+      state.filter = action.payload;
     },
   },
 });
 
 // Експортуємо генератори екшенів та редюсер
-export const { filter } = filtersSlise.actions;
+export const { setFilter } = filtersSlise.actions;
 export const filtersReducer = filtersSlise.reducer;

@@ -9,7 +9,7 @@ export const contactsReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'contacts/addContact':
       const updatePhonebook = [...state, action.payload];
-      // localStorage.setItem('user-contact', JSON.stringify(updatePhonebook));
+
       return updatePhonebook;
 
     case 'contacts/deleteContact':
@@ -17,10 +17,6 @@ export const contactsReducer = (state = initialState, action) => {
         contact => contact.id !== action.payload
       );
 
-      // localStorage.setItem(
-      //   'user-contact',
-      //   JSON.stringify(withoutRemovedContact)
-      // );
       return withoutRemovedContact;
     default:
       return state;

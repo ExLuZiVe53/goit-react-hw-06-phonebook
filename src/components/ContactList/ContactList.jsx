@@ -1,32 +1,21 @@
-import React, { useEffect } from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contactsSlise';
 import css from './ContactList.module.css';
 
 const ContactList = () => {
-  const filters = useSelector(state => {
-    console.log(state.filters);
-    return state.filters;
+  const dispatch = useDispatch();
+  const filter = useSelector(state => {
+    return state.filter;
   });
+
   const contacts = useSelector(state => {
-    console.log(state.contacts.contacts);
     return state.contacts.contacts;
   });
-  // localStorage.setItem('user-contact', JSON.stringify(contacts));
-
-  // const contactss = JSON.parse(localStorage.getItem('user-contact'));
 
   const visibleFilter = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filters)
+    contact.name.toLowerCase().includes(filter)
   );
 
-  useEffect(() => {
-    // localStorage.setItem('user-contact', JSON.stringify(contacts));
-  }, [contacts]);
-
-  const dispatch = useDispatch();
-  //  const handleDelete = (id)=> {dispatch(deleteContact(id))};
   const handleDelete = id => {
     dispatch(deleteContact(id));
   };

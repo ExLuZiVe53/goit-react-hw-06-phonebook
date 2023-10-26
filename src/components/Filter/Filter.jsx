@@ -1,24 +1,21 @@
-import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { filter } from 'redux/filtersSlice';
+import { setFilter } from 'redux/filtersSlice';
 import css from './Filter.module.css';
 
 export const Filter = () => {
+  // створює функію вантажівку, яка донесе інструкрію за допомогою хуків
   const dispatch = useDispatch();
 
-  const [filterok, setFilter] = useState('');
-
-  const handleFind = e => {
-    setFilter(e.target.value);
+  const handleFind = event => {
+    dispatch(setFilter(event.target.value));
   };
-  dispatch(filter(filterok));
   return (
     <div className={css.FilterWrap}>
-      <label htmlFor="">Find contacts by name</label>
+      <label>Find contacts by name</label>
       <input
         name="filter"
         type="text"
-        value={filterok}
+        value={setFilter}
         onChange={handleFind}
         className={css.FilterInput}
         placeholder="Find with me"
