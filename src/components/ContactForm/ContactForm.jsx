@@ -39,7 +39,7 @@ export const ContactForm = () => {
     // if (haveNameInPhonebook) {
     //   return alert(`${e.currentTarget.name.value} is already in contacts`);
     // }
-    dispatch(addContact(name, number));
+    dispatch(addContact({ name, number }));
     // Оновлюю інпут
     setName('');
     setNumber('');
