@@ -38,11 +38,9 @@ const contactsSlise = createSlice({
     },
 
     deleteContact: (state, action) => {
-      const withoutRemovedContact = state.contacts.filter(
+      state.contacts = state.contacts.filter(
         contact => contact.id !== action.payload
       );
-
-      return withoutRemovedContact;
     },
   },
 });
