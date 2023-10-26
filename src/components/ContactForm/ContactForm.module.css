@@ -14,6 +14,7 @@
 .FormInput {
   padding: 10px;
   border-radius: 12px;
+  margin-top: 10px;
 
   background: #8e9eab; /* fallback for old browsers */
   background: -webkit-linear-gradient(
