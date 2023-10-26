@@ -18,7 +18,7 @@ export const Filter = () => {
       <input
         name="filter"
         type="text"
-        value={setFilter}
+        // value={setFilter}
         onChange={handleFind}
         className={css.FilterInput}
         placeholder="Find with me"
