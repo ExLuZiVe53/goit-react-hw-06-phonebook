@@ -11,3 +11,6 @@
 //     return state.contacts.contacts;
 //   });
 // };
+
+export const getContacts = state => state.contacts.contacts;
+export const getNumber = state => state.contacts.number;

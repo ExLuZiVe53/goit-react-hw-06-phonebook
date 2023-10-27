@@ -1,12 +1,15 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contactsSlise';
 
 import css from './ContactForm.module.css';
+import { getContacts } from 'redux/selectors';
 
 // import { nanoid } from 'nanoid';
 
 export const ContactForm = () => {
+  const contacts = useSelector(getContacts);
+  // const numbers = useSelector(getNumber);
   const [name, setName] = useState(' ');
   const [number, setNumber] = useState(' ');
   const dispatch = useDispatch();
@@ -30,15 +33,25 @@ export const ContactForm = () => {
     e.preventDefault();
     // Записую значення з імпуту до об"єкту
 
-    // const haveNameInPhonebook = JSON.parse(
-    //   localStorage.getItem('user-contact')
-    // ).some(
-    //   ({ name }) =>
-    //     name.toLowerCase() === e.currentTarget.name.value.toLowerCase()
+    // const haveNameInPhonebook = items.some(
+    //   contact => contact.name.toLowerCase() === values.name.toLowerCase()
     // );
-    // if (haveNameInPhonebook) {
-    //   return alert(`${e.currentTarget.name.value} is already in contacts`);
+
+    const haveNameInPhonebook = contacts.some(
+      ({ name }) =>
+        name.toLowerCase() === e.currentTarget.name.value.toLowerCase()
+    );
+    if (haveNameInPhonebook) {
+      return alert(`${e.currentTarget.name.value} is already in contacts`);
+    }
+
+    // const haveNumberInPhonebook = numbers.some(
+    //   ({ number }) => number === e.currentTarget.number.value
+    // );
+    // if (haveNumberInPhonebook) {
+    //   return alert(`${e.currentTarget.number.value} is already in contacts`);
     // }
+
     dispatch(addContact({ name, number }));
     // Оновлюю інпут
     setName('');
